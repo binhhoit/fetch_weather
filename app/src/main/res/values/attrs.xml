@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppEditText">
+        <attr name="hintEnabled" format="boolean" />
+        <attr name="hint" format="string" />
+        <attr name="label" format="string" />
+        <attr name="labelSecond" format="string" />
+        <attr name="labelStar" format="boolean" />
+        <attr name="text" format="string" />
+        <attr name="endIconDrawable" format="reference" />
+        <attr name="tintEndIcon" format="color" />
+        <attr name="endIconDrawableSecond" format="reference" />
+        <attr name="isPassword" format="boolean"/>
+        <attr name="isNumber" format="boolean"/>
+        <attr name="paddingStart" format="dimension"/>
+        <attr name="paddingEnd" format="dimension"/>
+        <attr name="focusable" format="boolean"/>
+    </declare-styleable>
+</resources>

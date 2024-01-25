@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+
+android {
+    def androidVersions = rootProject.ext.android
+    compileSdkVersion androidVersions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+
+        consumerProguardFiles 'consumer-rules.pro'
+        buildConfigField "String", "HOST_URL", "\"https://api.stripe.com\""
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    sourceSets.all {
+        java.srcDir("src/${name}/kotlin")
+    }
+    namespace 'com.data'
+
+}
+
+dependencies {
+    def libsVersion = rootProject.ext
+
+    api project(':base')
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    //room
+    api "androidx.room:room-runtime:${libsVersion.roomVersion}"
+    ksp "androidx.room:room-compiler:${libsVersion.roomVersion}"
+    implementation "androidx.room:room-rxjava2:${libsVersion.roomVersion}"
+
+    testImplementation "junit:junit:${libsVersion.junit}"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${libsVersion.mockitoKotlinVersion}"
+    testImplementation "androidx.arch.core:core-testing:${libsVersion.coreTestingVersion}"
+
+}

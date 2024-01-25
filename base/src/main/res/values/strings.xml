@@ -1,0 +1,15 @@
+<resources>
+    <string name="appname">Milwaukee Loyalty</string>
+    <string name="error">Error</string>
+    <string name="unknown_error">The system has returned an unknown error. \nPlease try again</string>
+    <string name="warning">Warning</string>
+    <string name="success">Success</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="server_error">Connection failed. Please try again later</string>
+    <string name="connection_error">Connection error</string>
+    <string name="try_again">Please try again</string>
+    <string name="no_network">No internet connection. Please try again later</string>
+</resources>

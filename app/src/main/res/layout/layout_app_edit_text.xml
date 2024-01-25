@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
+        style="@style/TextInputLayoutAppearance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_13ssp"
+        android:paddingEnd="0dp"
+        app:endIconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_edit_text"
+            style="@style/EditTextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/_62hsdp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/helvetica_neue_regular"
+            android:textSize="@dimen/_13ssp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_label_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_13hsdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/helvetica_neue_medium"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_label_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/helvetica_neue_italic"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/tv_label_one"
+        app:layout_constraintTop_toTopOf="@id/tv_label_one"/>
+
+    <TextView
+        android:id="@+id/tv_label_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:gravity="top"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/helvetica_neue_italic"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/tv_label_second"
+        app:layout_constraintTop_toTopOf="@id/tv_label_one"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/iv_icon_end_second"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_24hsdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@id/text_input_layout"
+        android:contentDescription="iv_icon_end_second"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

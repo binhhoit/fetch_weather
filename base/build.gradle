@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    def androidVersions = rootProject.ext.android
+    compileSdkVersion androidVersions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+   compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+   }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+    sourceSets.all {
+        java.srcDir("src/${name}/kotlin")
+    }
+    namespace 'com.base'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android
+    api "androidx.core:core-ktx:$coreLibs"
+    api "androidx.appcompat:appcompat:$appcompat"
+    api "androidx.constraintlayout:constraintlayout:$constraintLayout"
+    api "com.google.android.material:material:$androidSupportLibrary"
+    implementation "androidx.exifinterface:exifinterface:$exifinterface"
+    // Architecture Components
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
+
+    // Network
+    api "com.squareup.retrofit2:retrofit:$retrofit2"
+    api "com.squareup.retrofit2:converter-gson:$retrofit2"
+    api "com.squareup.okhttp3:okhttp:$okHttp"
+    api "com.squareup.okhttp3:logging-interceptor:$okHttp"
+    api "com.github.skydoves:sandwich:$sandwich"
+
+    // Gson
+    api "com.google.code.gson:gson:$gson"
+
+    // Koin for Android
+    api "io.insert-koin:koin-android:$koin_version"
+    api "io.insert-koin:koin-annotations:$koin_ksp_version"
+    // Navigation Graph
+    api "io.insert-koin:koin-androidx-navigation:$koin_version"
+    //Log
+    api "com.jakewharton.timber:timber:$timber_version"
+
+    implementation "com.android.support:support-core-utils:28.0.0"
+
+    // Testing
+    testImplementation "junit:junit:$junit"
+}
