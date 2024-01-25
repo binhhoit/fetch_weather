@@ -38,7 +38,7 @@
         android:layout_marginStart="@dimen/_15sdp"
         android:textSize="@dimen/_10ssp"
         android:fontFamily="@font/helvetica_neue_medium"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorRedDB"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -62,7 +62,7 @@
         android:layout_marginStart="@dimen/_5sdp"
         android:textSize="@dimen/_10ssp"
         android:fontFamily="@font/helvetica_neue_italic"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorRedDB"
         app:layout_constraintStart_toEndOf="@id/tv_label_second"
         app:layout_constraintTop_toTopOf="@id/tv_label_one"
         tools:ignore="HardcodedText" />

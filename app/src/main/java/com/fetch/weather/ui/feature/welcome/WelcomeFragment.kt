@@ -32,4 +32,8 @@ class WelcomeFragment : BaseFragment() {
         findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment())
     }
 
+    fun navigateToDashboardScreen(){
+        findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToDashboardFragment())
+    }
+
 }

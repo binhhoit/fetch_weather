@@ -39,8 +39,18 @@ use?</string>
     <string name="des_your_phone">A verification code will be sent to this number.</string> <!-- Screen Register All Set -->
     <string name="all_set">All set!</string>
     <string name="des_all_set">You’ll be signed in to your account momentarity. if nothing happens,
-click continue.</string> <!-- Screen Date Picker -->
+click continue.</string>
+    <!-- Screen Date Picker -->
     <string name="birthday">Birthday</string>
     <string name="example_phone">98526471</string>
+
+    <!-- Dashboard -->
+    <string name="bottom_navigation_search">Search</string>
+    <string name="bottom_navigation_favorite">Favorite</string>
+    <!-- Login -->
+    <string name="fragment_login_valid_name_empty">The Name is Empty</string>
+    <string name="fragment_login_valid_name_short">The Name is very short</string>
+    <string name="fragment_login_can_t_login">Can\'t Login</string>
+
 
 </resources>

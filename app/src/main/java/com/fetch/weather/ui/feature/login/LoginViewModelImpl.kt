@@ -1,6 +1,5 @@
 package com.fetch.weather.ui.feature.login
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.data.domain.user.LoginUserCase
@@ -15,17 +14,17 @@ import kotlinx.coroutines.flow.onStart
 
 class LoginViewModelImpl(private val loginUserCase: LoginUserCase): LoginViewModel() {
 
-    private val _loginLiveData = MutableLiveData<DataState>()
-    override val loginLiveData: LiveData<DataState> get() = _loginLiveData
+    private val _loginLiveData = MutableLiveData<DataState<Boolean>>()
+    override val loginLiveData get() = _loginLiveData
 
-    override fun doLogin(userName: String, password: String) {
-        loginUserCase.execute(LoginUserCase.Param(userName, password))
+    override fun doLogin(userName: String) {
+        loginUserCase.execute(userName)
             .flowOn(Dispatchers.IO)
             .onStart {
                 _loginLiveData.value = DataState.Loading(true)
             }
             .onEach {
-                _loginLiveData.value = DataState.Success("Login Success")
+                _loginLiveData.value = DataState.Success(it)
             }
             .catch {
                 _loginLiveData.value = DataState.Failure(it)

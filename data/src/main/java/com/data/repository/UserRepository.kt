@@ -1,9 +1,7 @@
 package com.data.repository
 
-import kotlinx.coroutines.flow.Flow
-
 interface UserRepository {
-    fun login(email: String, password: String): Flow<String>
-
-    fun register(email: String, password: String): Flow<String>
+    suspend fun login(useName: String): Boolean
+    suspend fun getUserInfo():String
+    suspend fun deleteAccount():Boolean
 }

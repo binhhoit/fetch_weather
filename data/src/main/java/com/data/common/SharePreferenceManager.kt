@@ -14,6 +14,7 @@ class SharePreferenceManager constructor(app: Context) {
         private const val LOCALE_KEY = "locale_key"
         private const val FIRST_OPEN_APP = "first_open_app"
         private const val URI_FOLDER_KEY = "uri_folder_key"
+        private const val USER_KEY = "user_key"
 
         // For Singleton instantiation
         @Volatile
@@ -29,9 +30,6 @@ class SharePreferenceManager constructor(app: Context) {
     private val sharedPreferences by lazy(LazyThreadSafetyMode.NONE) {
         app.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
     }
-
-    val isLogged: Boolean
-        get() = userToken.isNotEmpty()
 
     var userToken: String
         get() = sharedPreferences.getString(USER_TOKEN, "")!!
@@ -59,7 +57,7 @@ class SharePreferenceManager constructor(app: Context) {
         get() = sharedPreferences.getBoolean(FIRST_OPEN_APP, true)
         set(value) = sharedPreferences.put { putBoolean(FIRST_OPEN_APP, value) }
 
-    var uriAccessFolder: String
-        get() = sharedPreferences.getString(URI_FOLDER_KEY, "") ?: ""
-        set(value) = sharedPreferences.put { putString(URI_FOLDER_KEY, value) }
+    var userNameInfo: String
+        get() = sharedPreferences.getString(USER_KEY, "") ?: ""
+        set(value) = sharedPreferences.put { putString(USER_KEY, value) }
 }

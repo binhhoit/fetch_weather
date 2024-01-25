@@ -6,7 +6,7 @@ import com.data.model.DataState
 
 abstract class LoginViewModel: ViewModel() {
 
-    abstract val loginLiveData: LiveData<DataState>
-    abstract fun doLogin(userName: String, password: String)
+    abstract val loginLiveData: LiveData<DataState<Boolean>>
+    abstract fun doLogin(userName: String)
 
 }

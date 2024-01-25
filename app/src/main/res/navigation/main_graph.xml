@@ -18,12 +18,27 @@
             app:exitAnim="@anim/slide_out_left_slightly"
             app:popEnterAnim="@anim/slide_in_left_slightly"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@layout/fragment_dashboard" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.fetch.weather.ui.feature.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@layout/fragment_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.fetch.weather.ui.feature.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" />
 
 </navigation>
