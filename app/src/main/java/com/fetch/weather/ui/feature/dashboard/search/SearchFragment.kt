@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.base.fragment.BaseFragment
-import com.fetch.weather.databinding.FragmentFavoriteLocationBinding
+import com.fetch.weather.databinding.FragmentSearchBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment() {
-    private var _binding: FragmentFavoriteLocationBinding? = null
+    private var _binding: FragmentSearchBinding? = null
     val binding get() = _binding!!
     override val lifecycleObserver = SearchLifecycleObserver(this)
 
@@ -21,7 +21,7 @@ class SearchFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFavoriteLocationBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 

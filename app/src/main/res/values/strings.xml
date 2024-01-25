@@ -51,6 +51,10 @@ click continue.</string>
     <string name="fragment_login_valid_name_empty">The Name is Empty</string>
     <string name="fragment_login_valid_name_short">The Name is very short</string>
     <string name="fragment_login_can_t_login">Can\'t Login</string>
+    <string name="fragment_search_find_weather_location">Find weather location</string>
+    <string name="fragment_search_search_city_name">Search City Name</string>
+    <string name="fragment_search_city_name">City Name</string>
+    <string name="fragment_search_can_t_get_geocoding_by_location_name">Can\'t get geocoding by location name</string>
 
 
 </resources>
