@@ -35,7 +35,7 @@ class SharePreferenceManager constructor(app: Context, private val gson: Gson) {
         set(value) = sharedPreferences.put { putString(USER_TOKEN, value) }
 
     fun clearData() {
-        sharedPreferences.edit().remove(USER_TOKEN).apply()
+        sharedPreferences.edit().clear().apply()
     }
 
     private inline fun SharedPreferences.put(body: SharedPreferences.Editor.() -> Unit) {

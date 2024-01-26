@@ -2,6 +2,8 @@ package com.fetch.weather.di.module
 
 import com.fetch.weather.ui.feature.dashboard.favorite.FavoriteViewModel
 import com.fetch.weather.ui.feature.dashboard.favorite.FavoriteViewModelImpl
+import com.fetch.weather.ui.feature.dashboard.profile.ProfileViewModel
+import com.fetch.weather.ui.feature.dashboard.profile.ProfileViewModelImpl
 import com.fetch.weather.ui.feature.dashboard.search.SearchViewModel
 import com.fetch.weather.ui.feature.dashboard.search.SearchViewModelImpl
 import com.fetch.weather.ui.feature.login.LoginViewModel
@@ -19,4 +21,5 @@ val viewModelModule = module {
     viewModel<SearchViewModel> { SearchViewModelImpl(get()) }
     viewModel<WeatherDetailViewModel> { WeatherDetailViewModelImpl(get(),get()) }
     viewModel<FavoriteViewModel> { FavoriteViewModelImpl(get()) }
+    viewModel<ProfileViewModel> { ProfileViewModelImpl(get()) }
 }

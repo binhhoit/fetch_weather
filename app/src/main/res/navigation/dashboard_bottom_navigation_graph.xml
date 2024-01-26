@@ -18,5 +18,11 @@
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite_location"/>
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.fetch.weather.ui.feature.dashboard.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
 
 </navigation>

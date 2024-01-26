@@ -36,7 +36,7 @@ class ProfileViewModelImpl(private val profileUseCase: ProfileUseCase) : Profile
     }
 
     override fun logOut() {
-        profileUseCase.getProfileInfo()
+        profileUseCase.logOutProfile()
             .flowOn(Dispatchers.IO)
             .launchIn(viewModelScope)
     }

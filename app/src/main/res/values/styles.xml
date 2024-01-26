@@ -18,7 +18,7 @@
     </style>
 
     <style name="AppButtonOutlineTextAppearance" parent="AppButtonTextAppearance">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorRedDB</item>
     </style>
 
     <style name="TextInputLayoutAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">

@@ -1,16 +1,13 @@
 package com.fetch.weather.ui.feature.dashboard.profile
 
-import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import com.base.fragment.FragmentLifecycleObserver
 import com.data.model.DataState
 import com.fetch.weather.R
-import com.fetch.weather.ui.feature.dashboard.search.LocationAdapter
 
 class ProfileLifecycleObserver(private val fragment: ProfileFragment) :
     FragmentLifecycleObserver {
 
-    private val adapter by lazy { LocationAdapter() }
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
         initView()
@@ -19,8 +16,10 @@ class ProfileLifecycleObserver(private val fragment: ProfileFragment) :
 
     private fun initView() {
         fragment.apply {
-            binding.apply { rcvLocation.adapter = adapter }
-            adapter.callback = { navigateToDetailWeatherPage(it) }
+            binding.btnLogout.setOnClickListener {
+                viewModel.logOut()
+                navigateToLoginPage()
+            }
             viewModel.getProfile()
         }
     }
@@ -30,7 +29,7 @@ class ProfileLifecycleObserver(private val fragment: ProfileFragment) :
             viewModel.profileState.observe(this) { state ->
                 when (state) {
                     is DataState.Success -> {
-
+                        binding.profileName = state.data
                     }
 
                     is DataState.Loading -> {

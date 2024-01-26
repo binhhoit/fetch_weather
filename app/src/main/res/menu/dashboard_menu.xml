@@ -9,4 +9,9 @@
         android:id="@+id/favoriteFragment"
         android:icon="@drawable/ic_favorite"
         android:title="@string/bottom_navigation_favorite" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile_login"
+        android:title="@string/bottom_navigation_profile" />
 </menu>
