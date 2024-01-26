@@ -60,4 +60,8 @@ class SharePreferenceManager constructor(app: Context) {
     var userNameInfo: String
         get() = sharedPreferences.getString(USER_KEY, "") ?: ""
         set(value) = sharedPreferences.put { putString(USER_KEY, value) }
+
+    var dalyWeather: String
+        get() = sharedPreferences.getString("save", "")!!
+        set(value) = sharedPreferences.put { putString("save", value) }
 }

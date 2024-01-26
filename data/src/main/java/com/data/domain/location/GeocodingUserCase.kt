@@ -3,7 +3,6 @@ package com.data.domain.location
 import com.data.domain.UseCase
 import com.data.model.LocationResponse
 import com.data.repository.LocationRepository
-import com.data.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

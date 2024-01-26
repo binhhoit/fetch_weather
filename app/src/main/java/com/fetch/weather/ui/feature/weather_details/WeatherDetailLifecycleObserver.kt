@@ -1,44 +1,40 @@
-package com.fetch.weather.ui.feature.dashboard.search
+package com.fetch.weather.ui.feature.weather_details
 
+import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.base.fragment.FragmentLifecycleObserver
 import com.data.model.DataState
 import com.fetch.weather.R
+import com.fetch.weather.ui.feature.dashboard.search.LocationAdapter
 
-class SearchLifecycleObserver(private val fragment: SearchFragment) :
-    FragmentLifecycleObserver {
+class WeatherDetailLifecycleObserver(private val fragment: WeatherDetailFragment)
+    : DefaultLifecycleObserver {
 
-    private val adapter by lazy { LocationAdapter() }
+    private val adapter by lazy { ForecastsWeatherDailyAdapter() }
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        initViewSearch()
+        initView()
         observerData()
-    }
-
-    private fun initViewSearch() {
         fragment.apply {
-            binding.apply {
-                rcvLocation.adapter = adapter
-                edtLocation.setOnClickIconEnd {
-                    if (!edtLocation.text.isNullOrEmpty())
-                        viewModel.searchLocationName(edtLocation.text ?: "")
-                }
+            argument.location.let {
+                viewModel.getDataWeatherByGeocoding(it.lat ?: 0.0, it.lon ?: 0.0)
             }
-
-            adapter.callback = {
-                navigateToDetailWeatherPage(it)
-            }
-
         }
     }
 
+    private fun initView() {
+        fragment.apply {
+            binding.apply {
+                rcvForecastsWeatherDaily.adapter = adapter
+            }
+        }
+    }
 
     private fun observerData() {
         fragment.apply {
-            viewModel.geocodingState.observe(this) { state ->
+            viewModel.weatherDataState.observe(this) { state ->
                 when (state) {
                     is DataState.Success -> {
-                        adapter.submitList(state.data)
+                        adapter.submitList(state.data.weatherDailyDetails)
                     }
 
                     is DataState.Loading -> {

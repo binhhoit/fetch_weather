@@ -1,13 +1,10 @@
 package com.fetch.weather.ui.feature.dashboard.search
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.data.domain.location.GeocodingUserCase
-import com.data.domain.user.LoginUserCase
 import com.data.model.DataState
 import com.data.model.LocationResponse
-import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
@@ -15,7 +12,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
-import timber.log.Timber
 
 class SearchViewModelImpl(private val geocodingUserCase: GeocodingUserCase) : SearchViewModel() {
     private val _geocodingState = MutableLiveData<DataState<List<LocationResponse>>>()

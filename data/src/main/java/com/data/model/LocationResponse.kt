@@ -1,6 +1,7 @@
 package com.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class LocationResponse (
     @SerializedName("name"        ) var name       : String?     = null,
@@ -9,7 +10,7 @@ data class LocationResponse (
     @SerializedName("lon"         ) var lon        : Double?     = null,
     @SerializedName("country"     ) var country    : String?     = null,
     @SerializedName("state"       ) var state      : String?     = null
-)
+): Serializable
 
 data class LocalNames (
     @SerializedName("ms"           ) var ms          : String? = null,

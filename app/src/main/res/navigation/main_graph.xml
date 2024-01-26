@@ -39,6 +39,20 @@
         android:id="@+id/dashboardFragment"
         android:name="com.fetch.weather.ui.feature.dashboard.DashboardFragment"
         android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.fetch.weather.ui.feature.weather_details.WeatherDetailFragment"
+        android:label="WeatherDetailFragment"
+        tools:layout="@layout/fragment_weather_detail">
+        <argument
+            android:name="location"
+            app:argType="com.data.model.LocationResponse" />
+    </fragment>
 
 </navigation>

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.base.fragment.BaseFragment
+import com.data.model.LocationResponse
 import com.fetch.weather.databinding.FragmentSearchBinding
+import com.fetch.weather.ui.feature.dashboard.DashboardFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment() {
@@ -26,6 +28,13 @@ class SearchFragment : BaseFragment() {
     }
 
     override val requestStatusBar = LIGHT
+
+    fun navigateToDetailWeatherPage(locationResponse: LocationResponse) {
+        findNavControllerDashboard()?.navigate(
+            DashboardFragmentDirections
+                .actionDashboardFragmentToWeatherDetailFragment(locationResponse)
+        )
+    }
 
     private fun findNavControllerDashboard() =
         parentFragment?.parentFragment?.findNavController()
