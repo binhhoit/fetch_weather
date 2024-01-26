@@ -4,7 +4,6 @@
     <color name="colorRedDB">#DB011C</color>
     <color name="colorPrimaryLight">#FBE6E8</color>
     <color name="colorPrimaryHover">#C50119</color>
-    <color name="colorPrimaryActive">#AF0116</color>
     <color name="colorPrimaryDark">#A40115</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorGray">#dfdfdf</color>
@@ -12,28 +11,8 @@
     <color name="blackWhite5">#0D000000</color>
     <color name="blackWhite15">#26000000</color>
     <color name="blackWhite30">#4d000000</color>
-    <color name="colorLimeGreen">#32CD32</color>
     <color name="warm_pink">#ff4f70</color>
-    <color name="pinkish_grey">#cecece</color>
-    <color name="grey_label">#B2B2B2</color>
     <color name="dark_gray">#5E5E5E</color>
-    <color name="gray_b0">#B0B0B0</color>
-    <color name="red">#DB011C</color>
-    <color name="grey_e6">#E6E6E6</color>
-    <color name="white_f9">#F9FAFB</color>
-    <color name="black_transparent_30">#4D000000</color>
-    <color name="neutral_300">#D6DADB</color>
-    <color name="white_f1">#f1f1f1</color>
-    <color name="backgroundTertiary">#E8E8E8</color>
-    <color name="red_light">#FAD9DD</color>
-    <color name="color_green">#0E8345</color>
-    <color name="green_light_20">#330E8345</color>
-    <color name="black_20">#33000000</color>
     <color name="red_light_active">#F4B0B9</color>
-    <color name="black_opacity_2">#05000000</color>
-    <color name="red_light_5">#0DB0B0B0</color>
-    <color name="orange_fc">#FCAA18</color>
-    <color name="yellow_light">#FFF7EA</color>
-    <color name="white_f6">#F6F6F6</color>
     <color name="black">#000000</color>
 </resources>

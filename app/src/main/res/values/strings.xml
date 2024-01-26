@@ -1,28 +1,8 @@
 <resources>
-    <string name="profile">profile</string>
-    <string name="home">home</string>
-    <string name="sign_in">Sign In</string>
-    <string name="signing_in_in_loading">Signing In…</string>
-    <string name="incorrect_email_or_password">Incorrect email or password.</string>
-    <string name="password">Password</string>
-    <string name="new_to_portal_create_an_account">New to Portal? Create an account.</string>
-    <string name="login_success">Login Success</string>
-    <string name="required_field">Required field</string>
-    <string name="email_is_existed">Email is existed</string>
-    <string name="invalid_email_format">Invalid email format</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="confirm_password_not_match">Confirm password not match</string>
-    <string name="back_to_login">Back to login</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="sign_up_success">Sign Up Success</string>
-    <string name="signing_up_in_loading">Signing Up..</string>
 
     <!-- Screen Common -->
     <string name="cancel">Cancel</string>
-    <string name="done">Done </string>
     <string name="ok">OK</string>
-    <string name="dismiss">Dismiss</string>
-    <string name="save">Save</string>
 
     <!-- Dashboard -->
     <string name="bottom_navigation_search">Search</string>
