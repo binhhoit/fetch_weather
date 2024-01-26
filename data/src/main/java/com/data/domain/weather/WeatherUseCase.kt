@@ -6,8 +6,8 @@ import com.data.repository.WeatherRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class WeatherUserCase(private val weatherRepository: WeatherRepository) :
-    UseCase<WeatherUserCase.Param, Flow<ForecastsWeatherDataResponse>>() {
+class WeatherUseCase(private val weatherRepository: WeatherRepository) :
+    UseCase<WeatherUseCase.Param, Flow<ForecastsWeatherDataResponse>>() {
     override fun execute(param: Param?) = flow {
         if (param == null)
             throw Exception("Invalid Param Weather")

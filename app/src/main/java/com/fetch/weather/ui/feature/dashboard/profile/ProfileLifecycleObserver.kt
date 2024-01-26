@@ -1,4 +1,4 @@
-package com.fetch.weather.ui.feature.dashboard.favorite
+package com.fetch.weather.ui.feature.dashboard.profile
 
 import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
@@ -7,7 +7,7 @@ import com.data.model.DataState
 import com.fetch.weather.R
 import com.fetch.weather.ui.feature.dashboard.search.LocationAdapter
 
-class FavoriteLifecycleObserver(private val fragment: FavoriteFragment) :
+class ProfileLifecycleObserver(private val fragment: ProfileFragment) :
     FragmentLifecycleObserver {
 
     private val adapter by lazy { LocationAdapter() }
@@ -21,17 +21,16 @@ class FavoriteLifecycleObserver(private val fragment: FavoriteFragment) :
         fragment.apply {
             binding.apply { rcvLocation.adapter = adapter }
             adapter.callback = { navigateToDetailWeatherPage(it) }
-            viewModel.getListLocationFavorite()
+            viewModel.getProfile()
         }
     }
 
     private fun observerData() {
         fragment.apply {
-            viewModel.geocodingState.observe(this) { state ->
+            viewModel.profileState.observe(this) { state ->
                 when (state) {
                     is DataState.Success -> {
-                        binding.ctlEmpty.isVisible = state.data.isEmpty()
-                        adapter.submitList(state.data)
+
                     }
 
                     is DataState.Loading -> {

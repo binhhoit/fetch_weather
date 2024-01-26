@@ -1,21 +1,23 @@
 package com.fetch.weather.ui.feature.weather_details
 
+import android.widget.Toast
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.data.model.DataState
 import com.fetch.weather.R
-import com.fetch.weather.ui.feature.dashboard.search.LocationAdapter
 
 class WeatherDetailLifecycleObserver(private val fragment: WeatherDetailFragment)
     : DefaultLifecycleObserver {
 
     private val adapter by lazy { ForecastsWeatherDailyAdapter() }
+    private val adapterWeatherToday by lazy { ForecastsWeatherTodayAdapter() }
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
         initView()
         observerData()
         fragment.apply {
             argument.location.let {
+                binding.location = it
                 viewModel.getDataWeatherByGeocoding(it.lat ?: 0.0, it.lon ?: 0.0)
             }
         }
@@ -25,18 +27,26 @@ class WeatherDetailLifecycleObserver(private val fragment: WeatherDetailFragment
         fragment.apply {
             binding.apply {
                 rcvForecastsWeatherDaily.adapter = adapter
+                rcvForecastsWeatherToday.adapter = adapterWeatherToday
+                ivBack.setOnClickListener { backScreen() }
+                fabSaveLocation.setOnClickListener { saveLocationFavorite() }
             }
+        }
+    }
+
+    private fun saveLocationFavorite() {
+        fragment.apply {
+            viewModel.saveLocationListFavorite(argument.location)
+            Toast.makeText(requireContext(),
+                "Location saved favorite",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun observerData() {
         fragment.apply {
-            viewModel.weatherDataState.observe(this) { state ->
+            viewModel.loadDataDataState.observe(this) { state ->
                 when (state) {
-                    is DataState.Success -> {
-                        adapter.submitList(state.data.weatherDailyDetails)
-                    }
-
                     is DataState.Loading -> {
                         if (state.isLoading) showLoading() else hideLoading()
                     }
@@ -46,6 +56,15 @@ class WeatherDetailLifecycleObserver(private val fragment: WeatherDetailFragment
                     }
                 }
 
+            }
+            viewModel.weatherDataTodayState.observe(this) { data ->
+                binding.infoWeatherToday = data
+            }
+            viewModel.weathersDetailToday.observe(this) { data ->
+                adapterWeatherToday.submitList(data)
+            }
+            viewModel.weatherDataTheNextDayState.observe(this) { data ->
+                adapter.submitList(data)
             }
         }
     }

@@ -28,4 +28,7 @@ class WeatherDetailFragment : BaseFragment() {
         return binding.root
     }
 
+    fun backScreen() {
+        findNavController().popBackStack()
+    }
 }

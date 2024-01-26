@@ -10,6 +10,6 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
-    single<LocationRepository> { LocationRepositoryImpl(get()) }
+    single<LocationRepository> { LocationRepositoryImpl(get(),get()) }
     single<WeatherRepository> { WeatherRepositoryImpl(get()) }
 }

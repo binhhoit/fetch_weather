@@ -21,5 +21,65 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/_30sdp" />
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50hsdp"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="start"
+            android:text= "@string/fragment_favorite_location_favorite"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_location"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_geocoding" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_empty"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/ic_empty_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10hsdp"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="center"
+                android:text= "@string/fragment_favorite_list_location_favorite_empty"
+                android:textColor="@color/colorRedDB"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintTop_toBottomOf="@id/iv_empty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

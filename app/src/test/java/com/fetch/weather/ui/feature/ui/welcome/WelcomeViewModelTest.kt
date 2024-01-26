@@ -30,14 +30,12 @@ class WelcomeViewModelTest : BaseViewModelTest<WelcomeViewModel>() {
     @Before
     override fun setUp() {
         MockitoAnnotations.openMocks(this)
-        whenever(localData.localeCurrent).thenReturn(Locale.ENGLISH)
         super.setUp()
     }
 
 
     @Test
     fun `get language Local state`() {
-        mViewModel.languageLocaleState.observeForever(mLanguageLocaleStateObserver)
 
         verify(mLanguageLocaleStateObserver, Times(1))
             .onChanged(Locale.ENGLISH)

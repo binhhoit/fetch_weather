@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.fetch.weather.utils.CommonUtilKt"/>
 
         <variable
-            name="showIncorrectPassword"
-            type="boolean" />
+            name="infoWeatherToday"
+            type="com.fetch.weather.ui.feature.weather_details.ForecastsWeatherDTO" />
+
+        <variable
+            name="location"
+            type="com.data.model.LocationResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,27 +24,234 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/_30sdp" />
+            app:layout_constraintGuide_begin="@dimen/_15sdp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/_30sdp" />
+            app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_44sdp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginTop="@dimen/_20hsdp"
+            android:contentDescription="ic_back"
+            android:paddingHorizontal="@dimen/_14sdp"
+            android:paddingVertical="@dimen/_15sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl_today_weather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_back"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            android:paddingBottom="@dimen/_20hsdp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end">
+
+            <TextView
+                android:id="@+id/tv_location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:gravity="center"
+                android:text="@{location.name}"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/_35ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_temperature_today"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="center"
+                android:text="@{CommonUtilKt.roundDecimal(CommonUtilKt.convertTempKelvinToCelsius(infoWeatherToday.temp)) + @string/fragment_weather_details_symbol_celsius}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_46ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_location_name" />
+
+            <TextView
+                android:id="@+id/tv_humidity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="start"
+                android:text="@{@string/fragment_weather_detail_humidity + ' ' + CommonUtilKt.roundDecimal(infoWeatherToday.humidity)}"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_temperature_today" />
+
+            <TextView
+                android:id="@+id/tv_time_wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="end"
+                android:text="@{@string/fragment_weather_detail_wind + ' ' + CommonUtilKt.roundDecimal(infoWeatherToday.speedWind)}"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_temperature_today" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/v_details_today"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGrey"
+            app:layout_constraintTop_toBottomOf="@id/ctl_today_weather"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"/>
+
+        <TextView
+            android:id="@+id/tv_title_weather_details_today"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="start"
+            android:text="@string/fragment_weather_detail_forecasts_weather_today"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/_17ssp"
+            android:layout_marginTop="@dimen/_10hsdp"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/v_details_today" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_forecasts_weather_today"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="visible"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_weather_details_today"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_forecasts_weather_hour" />
+
+        <View
+            android:id="@+id/v_details_next_date"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGrey"
+            android:layout_marginTop="@dimen/_10hsdp"
+            app:layout_constraintTop_toBottomOf="@id/rcv_forecasts_weather_today"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"/>
+
+        <TextView
+            android:id="@+id/tv_title_weather_details_next_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="start"
+            android:text="@string/fragment_weather_detail_forecasts_weather_next_3_days"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/_17ssp"
+            android:layout_marginTop="@dimen/_10hsdp"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/v_details_next_date" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/red_light_active"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            android:layout_marginTop="@dimen/_10hsdp"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_weather_details_next_day" >
+
+            <TextView
+                android:id="@+id/tv_title_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="start"
+                android:text="@string/fragment_weather_details_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_temp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="start"
+                android:text="@string/fragment_weather_detail_temp"
+                android:layout_marginStart="@dimen/_85sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintStart_toEndOf="@id/tv_title_date"
+                app:layout_constraintTop_toTopOf="@id/tv_title_date" />
+
+
+            <TextView
+                android:id="@+id/tv_title_humidity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="start"
+                android:text="@string/fragment_weather_detail_humidity"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginStart="@dimen/_10hsdp"
+                app:layout_constraintStart_toEndOf="@id/tv_title_temp"
+                app:layout_constraintTop_toTopOf="@id/tv_title_date"/>
+
+            <TextView
+                android:id="@+id/tv_title_wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:gravity="start"
+                android:text="@string/fragment_weather_detail_wind"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_title_date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_forecasts_weather_daily"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clt_title"
             tools:itemCount="10"
             tools:listitem="@layout/item_forecasts_weather" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_save_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite"
+            android:tint="@color/colorRedDB"
+            android:layout_marginBottom="@dimen/_50hsdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/floating_action_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,4 +1,4 @@
-package com.fetch.weather.ui.feature.dashboard.favorite
+package com.fetch.weather.ui.feature.dashboard.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,12 @@ import com.fetch.weather.databinding.FragmentFavoriteLocationBinding
 import com.fetch.weather.ui.feature.dashboard.DashboardFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FavoriteFragment : BaseFragment() {
+class ProfileFragment : BaseFragment() {
     private var _binding: FragmentFavoriteLocationBinding? = null
     val binding get() = _binding!!
-    val viewModel: FavoriteViewModel by viewModel()
+    val viewModel: ProfileViewModel by viewModel()
 
-    override val lifecycleObserver = FavoriteLifecycleObserver(this)
+    override val lifecycleObserver = ProfileLifecycleObserver(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,

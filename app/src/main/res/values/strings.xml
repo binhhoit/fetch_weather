@@ -55,6 +55,18 @@ click continue.</string>
     <string name="fragment_search_search_city_name">Search City Name</string>
     <string name="fragment_search_city_name">City Name</string>
     <string name="fragment_search_can_t_get_geocoding_by_location_name">Can\'t get geocoding by location name</string>
+    <!-- Weather Details -->
+    <string name="fragment_weather_detail_wind">Wind</string>
+    <string name="fragment_weather_detail_humidity">Humidity</string>
+    <string name="fragment_weather_details_symbol_celsius">°C</string>
+    <string name="fragment_weather_details_swin_symbol">" m/s N"</string>
+    <string name="fragment_weather_details_date">Date</string>
+    <string name="fragment_weather_detail_forecasts_weather_today">Forecasts weather today</string>
+    <string name="fragment_weather_detail_forecasts_weather_next_3_days">Forecasts weather next 3 days</string>
+    <string name="fragment_weather_detail_temp">Temp</string>
+    <string name="floating_action_button">Floating Action Button</string>
+    <string name="fragment_favorite_list_location_favorite_empty">List location favorite empty</string>
+    <string name="fragment_favorite_location_favorite">Location Favorite</string>
 
 
 </resources>

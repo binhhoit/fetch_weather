@@ -2,7 +2,7 @@ package com.fetch.weather.ui.feature.dashboard.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.data.domain.location.GeocodingUserCase
+import com.data.domain.location.GeocodingUseCase
 import com.data.model.DataState
 import com.data.model.LocationResponse
 import kotlinx.coroutines.Dispatchers
@@ -13,11 +13,11 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 
-class SearchViewModelImpl(private val geocodingUserCase: GeocodingUserCase) : SearchViewModel() {
+class SearchViewModelImpl(private val geocodingUseCase: GeocodingUseCase) : SearchViewModel() {
     private val _geocodingState = MutableLiveData<DataState<List<LocationResponse>>>()
     override val geocodingState get() = _geocodingState
     override fun searchLocationName(locationName: String) {
-        geocodingUserCase.execute(locationName)
+        geocodingUseCase.execute(locationName)
             .flowOn(Dispatchers.IO)
             .onStart {
                 _geocodingState.value = DataState.Loading(true)

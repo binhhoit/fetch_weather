@@ -5,7 +5,7 @@ import com.data.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class LoginUserCase(private val userRepository: UserRepository) :
+class LoginUseCase(private val userRepository: UserRepository) :
     UseCase<String, Flow<Boolean>>() {
     override fun execute(param: String?) = flow {
         if (param == null)
