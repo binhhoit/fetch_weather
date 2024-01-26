@@ -36,7 +36,7 @@
         app:itemTextAppearanceActive="@style/styleBottomBarSelectedText"
         app:itemTextAppearanceInactive="@style/styleBottomBarText"
         android:theme="@style/BottomNavigationTheme"
-        app:itemIconTint="@color/colorRedDB"
+
         app:menu="@menu/dashboard_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
