@@ -11,32 +11,31 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_line"
         app:navGraph="@navigation/dashboard_bottom_navigation_graph" />
 
     <View
         android:id="@+id/bottom_line"
-        app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_navigation"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/_1hsdp"
         android:background="@color/blackWhite5"
-        android:layout_height="@dimen/_1hsdp"/>
+        app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/dashboard_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="61dp"
+        android:theme="@style/BottomNavigationTheme"
+        app:itemTextAppearanceActive="@style/styleBottomBarSelectedText"
+        app:itemTextAppearanceInactive="@style/styleBottomBarText"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:itemTextAppearanceActive="@style/styleBottomBarSelectedText"
-        app:itemTextAppearanceInactive="@style/styleBottomBarText"
-        android:theme="@style/BottomNavigationTheme"
-
         app:menu="@menu/dashboard_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,6 +30,8 @@
     <string name="fragment_favorite_location_favorite">Location Favorite</string>
     <string name="fragment_profile_sign_out">Sign Out</string>
     <string name="fragment_profile_hello">Hello</string>
+    <string name="ic_back">ic_back</string>
+    <string name="fragment_lost_network_internet_connection_is_not_available">Internet connection is not available</string>
 
 
 </resources>

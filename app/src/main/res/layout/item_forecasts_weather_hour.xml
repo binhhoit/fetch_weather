@@ -3,6 +3,7 @@
     android:layout_width="@dimen/_100sdp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_dark_fill_gray_bored"
     android:paddingVertical="@dimen/_10hsdp"
     android:layout_marginHorizontal="@dimen/_5sdp">
@@ -17,7 +18,8 @@
         android:textSize="@dimen/_13ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/iv_cloud"
@@ -39,7 +41,8 @@
         android:textSize="@dimen/_13ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_cloud"/>
+        app:layout_constraintTop_toBottomOf="@id/iv_cloud"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_humidity"
@@ -52,7 +55,8 @@
         android:textSize="@dimen/_13ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_temperature"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_temperature"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_wind"
@@ -66,7 +70,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_humidity"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_humidity"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
