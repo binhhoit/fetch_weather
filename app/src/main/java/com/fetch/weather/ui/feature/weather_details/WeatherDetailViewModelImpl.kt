@@ -34,25 +34,24 @@ class WeatherDetailViewModelImpl(
 
     override fun getDataWeatherByGeocoding(lag: Double, lon: Double) {
         val params = WeatherUseCase.Param(lag, lon)
-        weatherUseCase.run {
-            execute(params)
-                .flowOn(Dispatchers.IO)
-                .onStart {
-                    _loadDataDataState.value = DataState.Loading(true)
-                }
-                .onEach {
-                    _loadDataDataState.value = DataState.Success(true)
-                    handleDataFormListForestWeather(it)
-                }
-                .catch {
-                    _loadDataDataState.value = DataState.Failure(it)
-                }
-                .onCompletion {
-                    _loadDataDataState.value = DataState.Loading(false)
-                }
-                .flowOn(Dispatchers.Main)
-                .launchIn(viewModelScope)
-        }
+        weatherUseCase
+            .execute(params)
+            .flowOn(Dispatchers.IO)
+            .onStart {
+                _loadDataDataState.value = DataState.Loading(true)
+            }
+            .onEach {
+                _loadDataDataState.value = DataState.Success(true)
+                handleDataFormListForestWeather(it)
+            }
+            .catch {
+                _loadDataDataState.value = DataState.Failure(it)
+            }
+            .onCompletion {
+                _loadDataDataState.value = DataState.Loading(false)
+            }
+            .flowOn(Dispatchers.Main)
+            .launchIn(viewModelScope)
     }
 
     override fun saveLocationListFavorite(locationResponse: LocationResponse) {

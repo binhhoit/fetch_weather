@@ -9,7 +9,7 @@ class WelcomeViewModelImpl(localData: SharePreferenceManager) : WelcomeViewModel
     override val isLogin get() = _isLogin
 
     init {
-        _isLogin.value = localData.userToken.isNotEmpty() && localData.userToken.isNotEmpty()
+        _isLogin.value = localData.userNameInfo.isNotEmpty() && localData.userToken.isNotEmpty()
     }
 
 }

@@ -1,5 +1,5 @@
 
-package com.fetch.weather.ui.feature.ui.welcome
+package com.fetch.weather.ui.feature.welcome
 
 import androidx.lifecycle.Observer
 import com.data.common.SharePreferenceManager
@@ -21,7 +21,7 @@ class WelcomeViewModelTest : BaseViewModelTest<WelcomeViewModel>() {
     @Mock
     private lateinit var localData: SharePreferenceManager
 
-    private val mLanguageLocaleStateObserver: Observer<Locale> = mock()
+    private val mFirstOpenAppStateObserver: Observer<Boolean> = mock()
 
     override fun createViewModel(): WelcomeViewModel {
         return WelcomeViewModelImpl(localData)
@@ -30,14 +30,27 @@ class WelcomeViewModelTest : BaseViewModelTest<WelcomeViewModel>() {
     @Before
     override fun setUp() {
         MockitoAnnotations.openMocks(this)
-        super.setUp()
     }
 
+    @Test
+    fun `check first open app state`() {
+        whenever(localData.userToken).thenReturn("")
+        whenever(localData.userNameInfo).thenReturn("")
+        super.setUp()
+        mViewModel.isLogin.observeForever(mFirstOpenAppStateObserver)
+
+        verify(mFirstOpenAppStateObserver, Times(1))
+            .onChanged(false)
+    }
 
     @Test
-    fun `get language Local state`() {
+    fun `check second open app state`() {
+        whenever(localData.userToken).thenReturn("token")
+        whenever(localData.userNameInfo).thenReturn("user_name")
+        super.setUp()
+        mViewModel.isLogin.observeForever(mFirstOpenAppStateObserver)
 
-        verify(mLanguageLocaleStateObserver, Times(1))
-            .onChanged(Locale.ENGLISH)
+        verify(mFirstOpenAppStateObserver, Times(1))
+            .onChanged(true)
     }
 }
