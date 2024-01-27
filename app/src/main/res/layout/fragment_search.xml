@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_30sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50hsdp"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="start"
+            android:text="@string/fragment_search_find_weather_location"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.fetch.weather.ui.feature.widgets.AppEditText
+            android:id="@+id/edt_location"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_62hsdp"
+            android:layout_marginTop="@dimen/_10hsdp"
+            app:endIconDrawable="@drawable/ic_search"
+            app:hint="@string/fragment_search_search_city_name"
+            app:label="@string/fragment_search_city_name"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_location"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/edt_location"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_geocoding" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

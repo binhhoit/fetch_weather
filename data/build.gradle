@@ -15,7 +15,8 @@ android {
         targetSdkVersion androidVersions.targetSdkVersion
 
         consumerProguardFiles 'consumer-rules.pro'
-        buildConfigField "String", "HOST_URL", "\"https://api.stripe.com\""
+        buildConfigField "String", "HOST_URL", "\"https://api.openweathermap.org\""
+        buildConfigField "String", "WEATHER_KEY", "\"fe546c9f8e64f0c4c5b6d1ab24603b75\""
     }
 
     compileOptions {

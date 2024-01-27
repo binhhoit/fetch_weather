@@ -18,7 +18,7 @@
     </style>
 
     <style name="AppButtonOutlineTextAppearance" parent="AppButtonTextAppearance">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorRedDB</item>
     </style>
 
     <style name="TextInputLayoutAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -39,7 +39,6 @@
     </style>
 
     <style name="EditTextAppearance">
-        <item name="fontFamily">@font/helvetica_neue_regular</item>
         <item name="android:textColor">#000000</item>
         <item name="android:background">@color/colorTransparent</item>
         <item name="android:textColorHint">@color/blackWhite30</item>
@@ -63,13 +62,29 @@
         <item name="android:textSize">@dimen/_9ssp</item>
     </style>
 
-    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bg_bottom_sheet</item>
+    <style name="styleBottomBarSelectedText" parent="TextAppearance.Design.Tab">
+        <item name="android:colorPrimary">@color/colorRedDB</item>
+        <item name="android:textColor">@color/colorRedDB</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="android:fontFamily">@font/helvetica_neue_medium</item>
+        <item name="textAllCaps">false</item>
+        <item name="itemIconTint">@color/colorRedDB</item>
     </style>
 
-    <style name="BaseBottomSheetDialog" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="android:windowIsFloating">true</item>
-        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    <style name="styleBottomBarText" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>"
+        <item name="textAllCaps">false</item>
+        <item name="itemIconTint">@color/dark_gray</item>
+    </style>
+
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorRedDB</item>
+        <item name="tickColorActive">@color/colorRedDB</item>
+        <item name="tickColorInactive">@color/dark_gray</item>
+        <item name="colorOnPrimary">@color/colorRedDB</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
     </style>
 
 </resources>

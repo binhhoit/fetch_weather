@@ -1,31 +1,23 @@
 package com.data.repository
 
-import com.data.exception.UnAuthException
-import com.data.network.remote.ServiceAPI
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import com.data.common.SharePreferenceManager
+import java.util.UUID
 
-class UserRepositoryImpl constructor(private var api: ServiceAPI) : UserRepository {
-    override fun login(email: String, password: String): Flow<String> {
-        return flow {
-            delay(2500)
-            if(email == "test@gmail.com" && password == "Password") {
-                emit("Success")
-            } else {
-                throw UnAuthException()
-            }
-        }
+class UserRepositoryImpl constructor(private var localData : SharePreferenceManager) : UserRepository {
+    override suspend fun login(useName: String): Boolean {
+        localData.firstOpenApp = true
+        localData.userToken = UUID.randomUUID().toString()
+        localData.userNameInfo = useName
+        return true
     }
 
-    override fun register(email: String, password: String): Flow<String> {
-        return flow {
-            delay(2500)
-            if(email == "test@gmail.com") {
-                throw UnAuthException()
-            } else {
-                emit("Success")
-            }
-        }
+    override suspend fun getUserInfo(): String {
+        return localData.userNameInfo
     }
+
+    override suspend fun deleteAccount(): Boolean {
+        localData.clearData()
+        return true
+    }
+
 }

@@ -14,7 +14,7 @@ class AppButtonOutline: AppCompatButton {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         val normalColor = resources.getColor(com.base.R.color.colorWhite, null)
-        val rippleColor = resources.getColor(R.color.colorPrimary, null)
+        val rippleColor = resources.getColor(R.color.colorRedDB, null)
         val cornerRadius = resources.getDimension(com.base.R.dimen._4sdp)
         val strokeWidth = resources.getDimension(com.base.R.dimen._1sdp)
 

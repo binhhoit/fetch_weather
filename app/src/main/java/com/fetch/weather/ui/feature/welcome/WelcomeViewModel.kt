@@ -6,8 +6,6 @@ import java.util.Locale
 
 abstract class WelcomeViewModel: ViewModel() {
 
-    abstract val languageLocaleState: LiveData<Locale>
-
-    abstract val firstOpenAppState: LiveData<Boolean>
+    abstract val isLogin: LiveData<Boolean>
 
 }

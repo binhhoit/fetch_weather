@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder
 import org.koin.dsl.module
 
 val appModule = module() {
-    single { SharePreferenceManager.getInstance(get()) }
+    single { SharePreferenceManager.getInstance(get(), get()) }
 
     single<Gson> {
         GsonBuilder()

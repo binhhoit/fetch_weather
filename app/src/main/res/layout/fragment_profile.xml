@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="profileName"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_30sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+        <TextView
+            android:id="@+id/tv_name_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_100hsdp"
+            android:fontFamily="@font/helvetica_neue_italic"
+            android:gravity="start"
+            android:text="@{@string/fragment_profile_hello + '\n' + profileName}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/_35ssp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.fetch.weather.ui.feature.widgets.AppButtonOutline
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_56hsdp"
+            android:text="@string/fragment_profile_sign_out"
+            android:enabled="true"
+            android:textColor="@color/colorRedDB"
+            android:layout_marginBottom="@dimen/_150hsdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

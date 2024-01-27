@@ -1,46 +1,37 @@
 <resources>
-    <string name="profile">profile</string>
-    <string name="home">home</string>
-    <string name="sign_in">Sign In</string>
-    <string name="signing_in_in_loading">Signing In…</string>
-    <string name="incorrect_email_or_password">Incorrect email or password.</string>
-    <string name="password">Password</string>
-    <string name="new_to_portal_create_an_account">New to Portal? Create an account.</string>
-    <string name="login_success">Login Success</string>
-    <string name="required_field">Required field</string>
-    <string name="email_is_existed">Email is existed</string>
-    <string name="invalid_email_format">Invalid email format</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="confirm_password_not_match">Confirm password not match</string>
-    <string name="back_to_login">Back to login</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="sign_up_success">Sign Up Success</string>
-    <string name="signing_up_in_loading">Signing Up..</string>
 
     <!-- Screen Common -->
     <string name="cancel">Cancel</string>
-    <string name="done">Done </string>
     <string name="ok">OK</string>
-    <string name="dismiss">Dismiss</string>
-    <string name="save">Save</string>
-    <string name="text_continue">Continue</string> <!-- Screen Validate -->
-    <string name="validate_email_empty">Email is empty</string>
-    <string name="validate_email_invalid">Email is invalid</string> <!-- Screen Login -->
-    <string name="login_welcome_back">Welcome Back!</string>
-    <string name="login_email">Email</string> <!-- Screen Register -->
-    <string name="email_address">Email Address</string>
-    <string name="what_your_email">What’s your email?</string>
-    <string name="des_your_email">Enter the email address you would like to use
-for signing in to the Loyalty Program.</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="what_phone_number">What phone number
-would you like to
-use?</string>
-    <string name="des_your_phone">A verification code will be sent to this number.</string> <!-- Screen Register All Set -->
-    <string name="all_set">All set!</string>
-    <string name="des_all_set">You’ll be signed in to your account momentarity. if nothing happens,
-click continue.</string> <!-- Screen Date Picker -->
-    <string name="birthday">Birthday</string>
-    <string name="example_phone">98526471</string>
+
+    <!-- Dashboard -->
+    <string name="bottom_navigation_search">Search</string>
+    <string name="bottom_navigation_favorite">Favorite</string>
+    <string name="bottom_navigation_profile">Profile</string>
+    <!-- Login -->
+    <string name="fragment_login_valid_name_empty">The Name is Empty</string>
+    <string name="fragment_login_valid_name_short">The Name is very short</string>
+    <string name="fragment_login_can_t_login">Can\'t Login</string>
+    <string name="fragment_search_find_weather_location">Find weather location</string>
+    <string name="fragment_search_search_city_name">Search City Name</string>
+    <string name="fragment_search_city_name">City Name</string>
+    <string name="fragment_search_can_t_get_geocoding_by_location_name">Can\'t get geocoding by location name</string>
+    <!-- Weather Details -->
+    <string name="fragment_weather_detail_wind">Wind</string>
+    <string name="fragment_weather_detail_humidity">Humidity</string>
+    <string name="fragment_weather_details_symbol_celsius">°C</string>
+    <string name="fragment_weather_details_swin_symbol">" m/s N"</string>
+    <string name="fragment_weather_details_date">Date</string>
+    <string name="fragment_weather_detail_forecasts_weather_today">Forecasts weather today</string>
+    <string name="fragment_weather_detail_forecasts_weather_next_3_days">Forecasts weather next 3 days</string>
+    <string name="fragment_weather_detail_temp">Temp</string>
+    <string name="floating_action_button">Floating Action Button</string>
+    <string name="fragment_favorite_list_location_favorite_empty">List location favorite empty</string>
+    <string name="fragment_favorite_location_favorite">Location Favorite</string>
+    <string name="fragment_profile_sign_out">Sign Out</string>
+    <string name="fragment_profile_hello">Hello</string>
+    <string name="ic_back">ic_back</string>
+    <string name="fragment_lost_network_internet_connection_is_not_available">Internet connection is not available</string>
+
 
 </resources>

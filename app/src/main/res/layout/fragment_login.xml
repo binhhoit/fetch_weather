@@ -3,183 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="showIncorrectPassword"
-            type="boolean" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorGray"
-        android:padding="@dimen/_30sdp">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imvLogo"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvLoginMsg"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/sign_in"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_24ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imvLogo" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/rlIncorrectAuth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:background="@drawable/bg_incorrect_auth_msg"
-            android:padding="@dimen/_15sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLoginMsg"
-            app:visibility="@{showIncorrectPassword}">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:importantForAutofill="no"
-                android:text="@string/incorrect_email_or_password" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivCloseMsg"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_close" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/llMainForm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:background="@drawable/bg_white_fill_gray_bored"
             android:orientation="vertical"
-            android:padding="@dimen/_15sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rlIncorrectAuth">
+            app:layout_constraintGuide_begin="@dimen/_30sdp" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="@dimen/_6sdp"
-                    android:src="@drawable/ic_profile_login"
-                    app:layout_constraintBottom_toBottomOf="@+id/til_email"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/til_email" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_email"
-                    style="@style/TextInputLayoutAppearance"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_64sdp"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    app:errorEnabled="true"
-                    android:hint="@string/email_address"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/iv_username">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:hint="Input your password"
-                        style="@style/EditTextAppearance" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_password"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="@dimen/_6sdp"
-                    android:src="@drawable/ic_lock"
-                    app:layout_constraintBottom_toBottomOf="@+id/til_password"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_username"
-                    app:layout_constraintStart_toStartOf="@+id/iv_username"
-                    app:layout_constraintTop_toTopOf="@+id/til_password" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_password"
-                    style="@style/TextInputLayoutAppearance"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_64sdp"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:hint="@string/password"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/iv_password"
-                    app:layout_constraintTop_toBottomOf="@id/til_email">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="textPassword"
-                        android:hint="Input your email"
-                        android:maxLines="1"
-                        style="@style/EditTextAppearance" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                android:textColor="@color/colorBlack"
-                tools:text="abc"/>
-
-            <com.fetch.weather.ui.feature.widgets.AppButton
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:alpha="1"
-                android:text="@string/sign_in" />
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvCreateAccount"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/new_to_portal_create_an_account"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/llMainForm" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/_277sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/ic_weather_logo"
+            android:layout_marginTop="@dimen/_100hsdp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="center_horizontal"
+            android:text="Welcome Fetch Weather"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_25ssp"
+            android:layout_marginTop="@dimen/_120hsdp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+        <com.fetch.weather.ui.feature.widgets.AppEditText
+            android:id="@+id/edt_display_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_62hsdp"
+            app:hint="Please enter the name"
+            android:layout_marginTop="@dimen/_50hsdp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10hsdp"
+            android:fontFamily="@font/helvetica_neue_regular"
+            android:gravity="start"
+            android:lineSpacingExtra="@dimen/_4ssp"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/colorRedDB"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/edt_display_name"/>
+
+        <com.fetch.weather.ui.feature.widgets.AppButton
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_56hsdp"
+            android:layout_marginTop="@dimen/_45hsdp"
+            android:enabled="false"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/edt_display_name" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

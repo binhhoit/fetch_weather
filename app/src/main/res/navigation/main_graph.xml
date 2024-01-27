@@ -18,12 +18,48 @@
             app:exitAnim="@anim/slide_out_left_slightly"
             app:popEnterAnim="@anim/slide_in_left_slightly"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/welcomeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.fetch.weather.ui.feature.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.fetch.weather.ui.feature.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/dashboardFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.fetch.weather.ui.feature.weather_details.WeatherDetailFragment"
+        android:label="WeatherDetailFragment"
+        tools:layout="@layout/fragment_weather_detail">
+        <argument
+            android:name="location"
+            app:argType="com.data.model.LocationResponse" />
+    </fragment>
 
 </navigation>

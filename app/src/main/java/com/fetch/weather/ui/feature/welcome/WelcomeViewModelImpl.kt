@@ -4,16 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import com.data.common.SharePreferenceManager
 import java.util.Locale
 
-class WelcomeViewModelImpl(localData: SharePreferenceManager) :
-    WelcomeViewModel() {
-    private val _languageLocaleState= MutableLiveData<Locale>()
-    override val languageLocaleState get() = _languageLocaleState
-    private val _firstOpenAppState= MutableLiveData<Boolean>()
-    override val firstOpenAppState get() = _firstOpenAppState
+class WelcomeViewModelImpl(localData: SharePreferenceManager) : WelcomeViewModel() {
+    private val _isLogin= MutableLiveData<Boolean>()
+    override val isLogin get() = _isLogin
 
     init {
-        _languageLocaleState.value = localData.localeCurrent
-        _firstOpenAppState.value = localData.firstOpenApp
+        _isLogin.value = localData.userNameInfo.isNotEmpty() && localData.userToken.isNotEmpty()
     }
 
 }

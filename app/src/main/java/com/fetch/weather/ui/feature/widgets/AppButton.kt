@@ -13,7 +13,7 @@ class AppButton : AppCompatButton {
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        val normalColor = resources.getColor(R.color.colorPrimary, null)
+        val normalColor = resources.getColor(R.color.colorRedDB, null)
         val rippleColor = resources.getColor(R.color.colorPrimaryHover, null)
         val cornerRadius = resources.getDimension(com.base.R.dimen._4sdp)
         val disableColor = resources.getColor(R.color.colorPrimaryLight, null)
