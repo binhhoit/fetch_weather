@@ -41,7 +41,7 @@ class FavoriteViewModelTest: BaseViewModelTest<FavoriteViewModel>() {
     fun `get list location favorite success, test DataState Success`() = testCoroutineRule.runTest {
         // arrange
         val locations = listOf(LocationResponse(name = "HCM"))
-        whenever(geocodingFavoriteUseCase.execute(any())).thenReturn(flowOf(locations))
+        whenever(geocodingFavoriteUseCase.execute()).thenReturn(flowOf(locations))
         mViewModel.geocodingState.observeForever(mDataStateObserver)
 
         // action
