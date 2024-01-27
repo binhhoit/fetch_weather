@@ -25,7 +25,7 @@
 
 * Single Activity (1 *Explicitly* Activity per project)
 * MVVM (Model-View-ViewModel)
-* DJ using Koin
+* DI using Koin
 
 We use a simple architecture of `Fragment` -> `LifecycleObserver` -> `ViewModel` -> `Usecase`-> `Repo` -> `Service`
 
